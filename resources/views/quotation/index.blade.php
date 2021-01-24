@@ -1,23 +1,8 @@
-@extends('layouts.quotationapp2')
-@section('title', 'quotation')
+@extends('layouts.quotationapp')
 
-<!-- @section('script')
-    <script>
-        $(function(){
-        $(".btn-dell").click(function(){
-        if(confirm("本当に削除しますか？")){
-        //そのままsubmit（削除）
-        }else{
-        //cancel
-        return false;
-        }
-        });
-        });
-    </script>
-@endsection -->
+@section('title', 'index')
 
 @section('content')
-
   <!-- 登録ページに遷移 -->
     {!! Form::open(['url' => '/quotation/add', 'method' => 'get']) !!}
         {!! Form::submit('登録', ['class' => 'btn btn-primary', 'id' => '']) !!}
@@ -28,14 +13,14 @@
         <table class='table table-bordered bg-white'>
             <thead class='thead-light'>
                 <tr>
-                    <th>名前</th>
-                    <th>名言</th>
+                    <th scope="col">名前</th>
+                    <th scope="col">名言</th>
                 </tr>
             </thead>
             @foreach($items as $item)
             <tr>
-                <td>{{$item->name}}</td>
-                <td>{{$item->quotation}}</td>
+                <td class="text-nowrap">{{$item->name}}</td>
+                <td class="text-nowrap">{{$item->quotation}}</td>
             </tr>
             <tr>
                 <td colspan='2'>
