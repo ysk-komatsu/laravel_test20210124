@@ -20,7 +20,7 @@
             @foreach($items as $item)
             <tr>
                 <td class="text-nowrap">{{$item->name}}</td>
-                <td class="text-nowrap">{{$item->quotation}}</td>
+                <td>{{$item->quotation}}</td>
             </tr>
             <tr>
                 <td colspan='2'>
