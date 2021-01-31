@@ -3,41 +3,27 @@
 @section('title', 'add')
 
 @section('content')
-    {!! Form::open(['url' => '/quotation/add', 'method' => 'post']) !!} 
-    <!-- バリデーション -->
-    @if($errors->has('name'))
-        <p>{{$errors->first('name')}}</p>
-    @endif
-    <div class='container'>
-        <div>
-            <div>
-                <div class='m-2'>
+    <div class="container">
+        <button type="button" class="btn btn-secondary" onclick="history.back()">戻る</button>
+        <div class="row justify-content-center">
+            {!! Form::open(['url' => route('regist'), 'method' => 'post']) !!} 
+                <div class='form-group'>
                     {{Form::label('name', '名前')}}
+                    {{Form::text('name', old('name', $item->name), ['class' => 'form-control', 'readonly'=>'readonly'])}}
                 </div>
-                <div>
-                    {{Form::text('name', old('name'))}}
-                </div>
-            </div>
-            <div>
-                <div class='m-2'>
+                <div class='form-group'>
                     {{Form::label('quotation', '名言')}}
+                    {{Form::textarea('quotation', old('quotation', $item->quotation), ['class' => 'form-control', 'rows' => '3', 'readonly'=>'readonly'])}}
                 </div>
-                <div>
-                    {{Form::textarea('quotation', old('quotation'), ['rows' => '5'])}}
+                <div class='form-group'>
+                    {{Form::label('category', 'カテゴリー')}}
+                    {{Form::text('category', old('category', $item->category->category), ['class' => 'form-control', 'readonly'=>'readonly'])}}
                 </div>
-            </div>
-            <div>
-                <div class='m-2'>
-                    {{Form::label('favorite', 'お気に入り度')}}
+                <div class='form-group'>
+                {!! Form::hidden('quote_id', $id) !!}
+                {!! Form::submit('登録', ['class' => 'btn btn-primary w-25']) !!}
                 </div>
-                <div>
-                    {{Form::select('favorite', ['1' => '★', '2' => '★★', '3' => '★★★', '4' => '★★★★', '5' => '★★★★★'])}}
-                </div>
-            </div>
-            <div class='m-2'>
-            {!! Form::submit('登録', ['class' => 'btn btn-primary w-25']) !!}
-            </div>
-    {!! Form::close() !!}
+            {!! Form::close() !!}
         </div>
     </div>
 @endsection

@@ -25,12 +25,14 @@ class QuotationRequest extends FormRequest
     {
         return [
             'name' => 'required',
+            'quotation' => 'required',
         ];
     }
     public function messages()
     {
         return [
             'name.required'  => ' ※名前は必須項目です',
+            'quotation.required' => '※名言は必須項目です'
         ];
     }
 }

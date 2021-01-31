@@ -10,6 +10,7 @@
     <title>@yield('title')</title>
 
     <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
     @yield('script')
 
@@ -19,6 +20,41 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <style>
+        @media (min-width: 992px) {
+            .title {
+                font-size: 5.0rem;
+            }
+            td {
+                font-size: 1.0rem;
+            }
+        }
+        @media (max-width: 991.98px) {
+            .title {
+                font-size: 4.0rem;
+            }
+            td {
+                font-size: 0.75rem;
+            }
+        }
+        @media (max-width: 767.98px) {
+            .title {
+                font-size: 3.0rem;
+            }
+            td {
+                font-size: 0.5rem;
+            }
+        }
+        @media (max-width: 575.98px) {
+            .title {
+                font-size: 2.0rem;
+            }
+            td {
+                font-size: 0.25rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <div id="app">

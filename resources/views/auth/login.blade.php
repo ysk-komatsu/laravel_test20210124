@@ -62,6 +62,10 @@
                                         {{ __('Forgot Your Password?') }}
                                     </a>
                                 @endif
+                                <!-- 追加内容20210129 -->
+                                <a class="btn btn-link" href="{{ route('register') }}">
+                                        新規登録はこちらから
+                                </a>
                             </div>
                         </div>
                     </form>

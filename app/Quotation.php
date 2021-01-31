@@ -8,4 +8,9 @@ class Quotation extends Model
 {
     protected $table = 'quotations';
     protected $guarded = array('id');
+    
+    public function category() {
+
+        return $this->belongsTo('App\Category');
+    }
 }

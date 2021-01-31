@@ -3,47 +3,38 @@
 @section('title', 'index')
 
 @section('content')
-  <!-- 登録ページに遷移 -->
-    {!! Form::open(['url' => '/quotation/add', 'method' => 'get']) !!}
-        {!! Form::submit('登録', ['class' => 'btn btn-primary', 'id' => '']) !!}
-    {!! Form::close() !!}
+    <div class=container>
+        <div class='title text-center'>あなただけの<br>名言集を作りましょう</div>
+        <!-- 登録ページに遷移 -->
+        <div class='py-2'>
+            {!! Form::open(['url' => route('login'), 'method' => 'get']) !!}
+                {!! Form::submit('ログイン or 新規登録', ['class' => 'btn btn-primary w-100', 'id' => '']) !!}
+            {!! Form::close() !!}
+        </div>
 
-  <!-- データベースの表示 -->
-    <div class='table-responsive'>
-        <table class='table table-bordered bg-white'>
-            <thead class='thead-light'>
-                <tr>
-                    <th scope="col">名前</th>
-                    <th scope="col">名言</th>
-                </tr>
-            </thead>
-            @foreach($items as $item)
-            <tr>
-                <td class="text-nowrap">{{$item->name}}</td>
-                <td>{{$item->quotation}}</td>
-            </tr>
-            <tr>
-                <td colspan='2'>
-                    <div class='container-fluid'>
-                        <div class='row'>
-                            <div class='col'>
-                                {{$score[$item->favorite]['label']}}
-                            </div>
-                            <div class='col text-right'>
-                                {!! Form::open(['url' => '/quotation/'.$item->id.'/update', 'method' => 'get']) !!}
-                                    {!! Form::submit('編集', ['class' => 'btn', 'id' => '']) !!}
-                                {!! Form::close() !!}
-                            </div>
-                            <div class='col text-right'>
-                                {!! Form::open(['url' => '/quotation/'.$item->id, 'method' => 'delete']) !!}
-                                    {!! Form::submit('削除', ['class' => 'btn btn-danger', 'onclick' => 'return confirm("本当に削除しますか？");', 'id' => '']) !!}
-                                {!! Form::close() !!}
-                            </div>
-                        </div>
-                    </div>
-                </td>
-            </tr>
-            @endforeach
-        </table>
+        <!-- データベースの表示 -->
+        <h2 class='text-center py-2'>
+            最新のランキング
+        </h2>
+        <div class='table-responsive'>
+            <table class='table table-bordered bg-white'>
+                <thead class='thead-light'>
+                    <tr>
+                        <th scope="col">名前</th>
+                        <th scope="col">名言</th>
+                        <th class="text-nowrap" scope="col">追加数</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($items as $item)
+                    <tr>
+                        <td class="text-nowrap" style="width:20%">{{$item->name}}</td>
+                        <td style="width:70%">{{$item->quotation}}</td>
+                        <td style="width:10%">{{$item->score}}</td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
     </div>
 @endsection
