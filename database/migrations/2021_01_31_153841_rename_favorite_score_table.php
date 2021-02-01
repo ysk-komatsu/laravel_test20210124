@@ -14,7 +14,7 @@ class RenameFavoriteScoreTable extends Migration
     public function up()
     {
         Schema::table('quotations', function (Blueprint $table) {
-            $table->renameColumn('favorite', 'score')
+            $table->renameColumn('favorite', 'score');
         });
     }
 

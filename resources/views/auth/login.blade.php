@@ -61,11 +61,10 @@
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
                                     </a>
-                                @endif
-                                <!-- 追加内容20210129 -->
-                                <a class="btn btn-link" href="{{ route('register') }}">
+				    @endif
+				    <a class="btn btn-link" href="{{ route('register') }}">
                                         新規登録はこちらから
-                                </a>
+                                    </a>
                             </div>
                         </div>
                     </form>

@@ -29,10 +29,14 @@ Route::get('quotation', 'QuotationController@index');
 Route::get('quotation/create', 'QuotationController@create')->name('create');
 Route::post('quotation/create', 'QuotationController@store')->name('store');
 Route::get('quotation/{id}/update', 'QuotationController@edit')->name('edit');
-Route::put('quotation/{id}', 'QuotationController@update')->name('update');
+Route::put('quotation/{id}', 'QuotationController@update')->name('update');
 Route::delete('quotation/{id}', 'QuotationController@destroy')->name('delete');
 Route::get('quotation/mybook', 'QuotationController@add')->name('mypage');
 Route::get('quotation/list', 'QuotationController@list')->name('list');
 
 Route::get('quotation/{id}/add', 'QuotationController@addcheck')->name('check');
 Route::post('quotaion/add', 'QuotationController@regist')->name('regist');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
